@@ -13,8 +13,8 @@ class Stack {
     if (this.isEmpty()) {
       return "Stack is Empty";
     }
-    this.stack.pop();
     this.currentIndex--;
+    return this.stack.pop();
   }
 
   peak() {
