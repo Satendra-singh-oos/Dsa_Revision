@@ -1,3 +1,5 @@
+// a node in linkedlist consist of two thing data and one thing which well tell us about the that there is some thing to the next of linkedlist is called as next
+
 class Node {
   constructor(data, next = null) {
     this.data = data;
@@ -5,8 +7,10 @@ class Node {
   }
 }
 
+// empty box of linkedlist
 class LinkedList {
   constructor() {
+    // the first object of linked list is called as head and last object is called as tail
     this.head = null;
   }
 }
@@ -20,7 +24,7 @@ LinkedList.prototype.insertAtBeginning = function (data) {
 
 LinkedList.prototype.inserAtEnd = function (data) {
   const newNode = new Node(data);
-  // this.head==null
+  // if(this.head==null){}
   if (!this.head) {
     this.head = newNode;
     return;
@@ -82,6 +86,8 @@ LinkedList.prototype.deleteLastNode = function () {
 };
 
 // delete node at given point
+// [6->7->8]
+// [6->8]
 
 LinkedList.prototype.deleteNodeAtGivenKey = function (key) {
   if (!this.head) {
@@ -173,14 +179,15 @@ LinkedList.prototype.printList = function () {
 
 // Reverse A linkedList
 
+// [3->4->6->7]
 LinkedList.prototype.reverse = function () {
+  let next = null;
   let prev = null;
   let curr = this.head;
-  let next = null;
 
   while (curr) {
     next = curr.next;
-    curr.next = prev;
+    curr.next = prev; // changing the direction of pointer of 3<-4 to null null<-3 at this moment i only have prev as null
     prev = curr;
     curr = next;
   }
@@ -218,6 +225,5 @@ if (node) {
 linkedList.printList();
 
 console.log("Reverse");
-
 linkedList.reverse();
 linkedList.printList();
