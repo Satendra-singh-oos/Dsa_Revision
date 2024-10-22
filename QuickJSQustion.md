@@ -3,7 +3,7 @@
 
 ## Q1. Is JavaScript single threaded or multi-threaded?
 
- -> JavaScript is a single-threaded language. This means it has one call stack and one memory heap. 
+ - JavaScript is a single-threaded language. This means it has one call stack and one memory heap. 
    As expected, it executes code in order and must finish executing a piece code before moving onto the next.
    This is what allows JavaScript to be non-blocking and use async operations. 
    However, JavaScript also has asynchronous behavior. This is what allows us to use setTimeout, AJAX, and promises.
@@ -14,25 +14,27 @@
 
 ## Q2. Explain how JavaScript engines works?
 
- -> JavaScript engines are programs that execute JavaScript code. (Ex: GoogleV8, spiderMonkey,etc)
+ - JavaScript engines are programs that execute JavaScript code. (Ex: GoogleV8, spiderMonkey,etc)
   
  Execution 
-
+```
  JS_CODE --> Parser --> Abstract_Syntax_Tree --> Interpreter (Optimized Compiler) --> ByteCode --> Execution
+
+ ```
 
 ---
 
- ## Q3. What is event loop in JavaScript?
-
+## Q3. What is event loop in JavaScript?
  - As we know JavaScript is single-threaded language   but it also follow the asynchronous  and have non-blocking behaviors.
    So how this happens in js as it is single-threaded the answer lies in the execution of the code in js,
 
-   THe Code will come in the call stack , if it contains the browser-api like(setTimeout,setInterval,..etc) the that call will take that task to the task queue
+   The Code will come in the call stack , if it contains the browser-api like(setTimeout,setInterval,..etc) the that call will take that task to the task queue
    we have 2 type of task queue one is micro task queue and other is macro Task Queue so when the task go do any of this queue there will be something which will tell us to execute the code 
    that is done by event loop 
 
-   CallStack  (EventLoop)[keep checking the queue]           <--->  [MICRO- TASKQUEUE]
-                                                             <---> [MACRO-TASKQUEUE]
+   ```
+   CallStack  (EventLoop)[keep checking the queue]           <--->  [MICRO- TASKQUEUE]<---> [MACRO-TASKQUEUE]
+                                                             ```
 
     show this code bellow 
 
@@ -58,10 +60,10 @@ console.log("end");
 
  - There are mainly two types of data types in JavaScript: primitive data types and object (reference) data types.
 
-1)Primitive data types are the basic data types in JavaScript. 
+1) Primitive data types are the basic data types in JavaScript. 
 They include numbers, strings, Booleans, null, and undefined. Symbols are also primitive data types, that represent unique identifiers.
 
-2)Object data types are data types that contain other data types.
+2) Object data types are data types that contain other data types.
 They are created using object literals or constructor functions. Objects, Arrays, and Functions are examples of object data types.
 
 
@@ -69,7 +71,7 @@ They are created using object literals or constructor functions. Objects, Arrays
 
 ## Q6. What is Hosting/temporal dead zone
 
- -> Hosting = as we know js program run a global execution context which has 2 page 
+- Hosting = as we know js program run a global execution context which has 2 page 
               1)Memory Creation (allocate memory to the variable fuction(refrence) and object)
               2)Execution Phase
 
@@ -80,7 +82,7 @@ They are created using object literals or constructor functions. Objects, Arrays
 
 
 
-  -> Temporal dead zone - Accesses the variable or function before they declare
+- Temporal dead zone - Accesses the variable or function before they declare
 
    Case 1-> We can access the function before declaration
    Case 2-> If we access VAR before declaration it will give undefine
@@ -658,8 +660,7 @@ console.log(original.address.city); // Output: New York (not affected)
 
 ## Q25. What is an IIFE in JavaScript?
 
-- 
-An IIFE, or immediately-invoked function expression, is a JavaScript function that is invoked immediately after it is defined. It is often used to create a private scope for variables and functions.
+- An IIFE, or immediately-invoked function expression, is a JavaScript function that is invoked immediately after it is defined. It is often used to create a private scope for variables and functions.
 
 Here's an example of an IIFE in JavaScript:
 
