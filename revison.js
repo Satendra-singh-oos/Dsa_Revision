@@ -113,41 +113,92 @@ sumPossible(15, [4, 6, 10]) -> false
 // console.log(coinSumMaxiumRequiredCoins([5, 3, 4], 8));
 // console.log(coinSumMaxiumRequiredCoins([4, 6, 10], 15));
 
-function coinSumTotalPath(coins, amount, startIndex = 0, memo = {}) {
-  const key = `${amount}-${startIndex}`;
-  if (key in memo) {
-    return memo[key];
-  }
+// function coinSumTotalPath(coins, amount, startIndex = 0, memo = {}) {
+//   const key = `${amount}-${startIndex}`;
+//   if (key in memo) {
+//     return memo[key];
+//   }
 
-  if (amount === 0) {
-    return 1;
-  }
-  if (amount < 0) {
-    return 0;
-  }
+//   if (amount === 0) {
+//     return 1;
+//   }
+//   if (amount < 0) {
+//     return 0;
+//   }
 
-  let totalPath = 0;
+//   let totalPath = 0;
 
-  //   for (const coin of coins) {
-  //     const currentPath = coinSumTotalPath(coins, amount - coin, memo);
+//   for (const coin of coins) {
+//     const currentPath = coinSumTotalPath(coins, amount - coin, memo);
 
-  //     if (currentPath !== -1) {
-  //       totalPath = totalPath + currentPath;
-  //     }
-  //   }
+//     if (currentPath !== -1) {
+//       totalPath = totalPath + currentPath;
+//     }
+//   }
 
-  for (let i = startIndex; i < coins.length; i++) {
-    const currentPath = coinSumTotalPath(coins, amount - coins[i], i, memo);
-    totalPath = totalPath + currentPath;
-  }
+//   for (let i = startIndex; i < coins.length; i++) {
+//     const currentPath = coinSumTotalPath(coins, amount - coins[i], i, memo);
+//     totalPath = totalPath + currentPath;
+//   }
 
-  memo[key] = totalPath;
+//   memo[key] = totalPath;
 
-  console.log("Cached ", memo);
+//   console.log("Cached ", memo);
 
-  return memo[key];
+//   return memo[key];
+// }
+
+// console.log(coinSumTotalPath([1, 2, 5], 5));
+
+// console.log(typeof []);
+
+// let company = {
+//   name: "company_name",
+//   location: function () {
+//     console.log("Company_Location");
+//   },
+// };
+
+// let employe = {
+//   name: "abcd",
+//   homeTown: function () {
+//     console.log("Delhi");
+//   },
+// };
+
+// console.log(employe);
+
+// console.log(employe);
+// employe.__proto__ = company;
+
+// console.log(employe);
+
+// const ans = Promise.resolve(2)
+//   .then((res) => res + 2)
+//   .catch((err) => console.employe(err));
+
+// ans.then((res) => console.log(res));
+
+function getThis() {
+  console.log(this);
 }
 
-console.log(coinSumTotalPath([1, 2, 5], 5));
+console.log("Func -> ", getThis());
 
-console.log(typeof []);
+const obj = {
+  getThis,
+};
+
+console.log("obj-> ", obj.getThis());
+
+// const getThis = () => {
+//   console.log(this);
+// };
+
+// console.log("Arr-Func -> ", getThis());
+
+// const obj = {
+//   getThis,
+// };
+
+// console.log("obj-> ", obj.getThis());
