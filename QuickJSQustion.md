@@ -477,15 +477,30 @@ let company = {
   },
 };
 
-let employe = {
+// OLD WAY
+let employe1 = {
   name: "abcd",
   homeTown: function () {
     console.log("Delhi");
   },
 };
+employe1.__proto__ = company
 
-console.log(employe);
+console.log(employe1)
+employe1.location();
 
+
+
+// MODER WAY
+
+let employe = Object.create(company); 
+employe.name = "abcd"; 
+employe.homeTown = function () {
+  console.log("Delhi");
+};
+
+console.log(employe); 
+employe.location();
 ```
 
 ```javascript
